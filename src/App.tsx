@@ -17,30 +17,37 @@ import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
 import PoliticaCookies from './pages/PoliticaCookies';
 import TerminosCondiciones from './pages/TerminosCondiciones';
 import PoliticaReembolso from './pages/PoliticaReembolso';
+import { useScrollAnimation } from './hooks/useScrollAnimation';
+
+function HomePage() {
+  useScrollAnimation();
+
+  return (
+    <div>
+      <Header />
+      <main>
+        <Hero />
+        <AppFeatures />
+        <Programs />
+        <Testimonials />
+        <Authority />
+        <InternationalCovers />
+        <Memberships />
+        <FAQ />
+      </main>
+      <Footer />
+      <CookieConsent />
+      <Chatbot />
+    </div>
+  );
+}
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white text-gray-900">
+      <div className="min-h-screen bg-black text-white">
         <Routes>
-          <Route path="/" element={
-            <div>
-              <Header />
-              <main>
-                <Hero />
-                <AppFeatures />
-                <Programs />
-                <Testimonials />
-                <Authority />
-                <InternationalCovers />
-                <Memberships />
-                <FAQ />
-              </main>
-              <Footer />
-              <CookieConsent />
-              <Chatbot />
-            </div>
-          } />
+          <Route path="/" element={<HomePage />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/politica-cookies" element={<PoliticaCookies />} />

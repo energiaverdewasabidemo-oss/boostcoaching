@@ -47,43 +47,46 @@ const AppFeatures = () => {
   ];
 
   return (
-    <section id="features" className="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="features" className="py-32 bg-black relative overflow-hidden">
+      <div className="absolute inset-0 aurora-bg"></div>
+      <div className="absolute inset-0 gradient-mesh opacity-20"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
+          <div className="text-center mb-24">
+            <div className="inline-flex items-center glass-card-light rounded-full px-6 py-3 mb-8 shimmer">
               <Trophy className="w-5 h-5 text-gold mr-3" />
-              <span className="text-gold font-bold text-sm tracking-wider">CARACTERÍSTICAS</span>
+              <span className="gradient-text font-black text-sm tracking-widest">CARACTERÍSTICAS PREMIUM</span>
             </div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-gray-900">
-              Todo lo que necesitas
-              <span className="block text-gold mt-2">en una app</span>
+            <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <span className="text-white">Todo lo que</span>
+              <span className="block gradient-text text-glow mt-2">Necesitas</span>
             </h2>
 
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Boost no es solo una app de entrenamientos. Es tu entrenador personal, nutricionista y comunidad de apoyo, todo en tu bolsillo.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-gold/30 hover:-translate-y-2"
+                className="bento-card p-8 hover-lift stagger-animation neon-border"
               >
-                <div className="bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors">
+                <div className="bg-gold/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 glow-gold transition-all duration-500 group-hover:scale-110">
                   <feature.icon className="w-8 h-8 text-gold" />
                 </div>
 
-                <h3 className="text-xl font-black text-gray-900 mb-4">
+                <h3 className="text-xl font-black text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {feature.title}
                 </h3>
 
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed text-sm">
                   {feature.description}
                 </p>
               </div>
@@ -91,30 +94,30 @@ const AppFeatures = () => {
           </div>
 
           {/* App Preview Section */}
-          <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-16 shadow-2xl">
+          <div className="glass-card-light rounded-3xl p-8 md:p-16 border-2 border-gold/30 glow-gold-intense">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
 
               {/* Left - Text */}
               <div className="text-white">
-                <h3 className="text-4xl md:text-5xl font-black mb-6">
-                  Diseñada para
-                  <span className="block text-gold">Resultados Reales</span>
+                <h3 className="text-5xl md:text-6xl font-black mb-8 leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  <span className="text-white">Diseñada para</span>
+                  <span className="block gradient-text text-glow mt-2">Resultados Reales</span>
                 </h3>
 
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                <p className="text-xl text-gray-300 mb-10 leading-relaxed">
                   Cada detalle de Boost ha sido creado pensando en maximizar tus resultados. Interfaz intuitiva, contenido premium y tecnología que te mantiene motivado.
                 </p>
 
-                <div className="space-y-4">
+                <div className="space-y-5">
                   {[
                     "Sincronización en todos tus dispositivos",
                     "Modo offline para entrenar sin conexión",
                     "Actualizaciones mensuales con nuevo contenido",
                     "Soporte premium 24/7"
                   ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-4">
-                      <div className="w-2 h-2 rounded-full bg-gold"></div>
-                      <span className="text-gray-300 font-medium">{item}</span>
+                    <div key={index} className="flex items-center gap-4 stagger-animation">
+                      <div className="w-3 h-3 rounded-full bg-gold glow-gold"></div>
+                      <span className="text-gray-200 font-semibold text-lg">{item}</span>
                     </div>
                   ))}
                 </div>

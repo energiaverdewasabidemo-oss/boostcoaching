@@ -69,35 +69,38 @@ const Memberships = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="pricing" className="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section ref={sectionRef} id="pricing" className="py-32 bg-black relative overflow-hidden">
+      <div className="absolute inset-0 aurora-bg"></div>
+      <div className="absolute inset-0 gradient-mesh opacity-30"></div>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
 
           {/* Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
+          <div className="text-center mb-24 reveal">
+            <div className="inline-flex items-center glass-card-light rounded-full px-6 py-3 mb-8 shimmer">
               <Sparkles className="w-5 h-5 text-gold mr-3" />
-              <span className="text-gold font-bold text-sm tracking-wider">PRECIOS</span>
+              <span className="gradient-text font-black text-sm tracking-widest">PRECIOS SIMPLES</span>
             </div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-gray-900">
-              Empieza tu
-              <span className="block text-gold mt-2">Transformación Hoy</span>
+            <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <span className="text-white">Empieza tu</span>
+              <span className="block gradient-text text-glow mt-2">Transformación Hoy</span>
             </h2>
 
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Acceso instantáneo a todos los programas, entrenamientos y contenido premium. Cancela cuando quieras.
             </p>
           </div>
 
           {/* Plans Grid - 2 columns */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
             {plans.map((plan, index) => (
-              <div key={index} className="relative">
+              <div key={index} className="relative reveal-scale">
                 {/* Badges */}
                 {plan.badge && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="bg-gold text-black px-5 py-2 rounded-full font-black text-sm shadow-xl animate-pulse">
+                    <div className="btn-gold-premium px-5 py-2 rounded-full font-black text-sm shimmer">
                       {plan.badge}
                     </div>
                   </div>
@@ -105,7 +108,7 @@ const Memberships = () => {
 
                 {plan.popular && (
                   <div className="absolute -top-4 right-4 z-20">
-                    <div className="bg-gold text-black px-4 py-2 rounded-full font-black text-xs shadow-xl flex items-center gap-2">
+                    <div className="btn-gold-premium px-4 py-2 rounded-full font-black text-xs flex items-center gap-2 shimmer">
                       <Star className="w-4 h-4 fill-current" />
                       MEJOR VALOR
                     </div>
@@ -114,44 +117,44 @@ const Memberships = () => {
 
                 {plan.trial && (
                   <div className="absolute top-6 left-6 z-20">
-                    <div className="bg-white text-gray-900 px-3 py-1 rounded-lg font-black text-xs shadow-lg border-2 border-gold">
+                    <div className="glass-card-light px-3 py-1 rounded-lg font-black text-xs text-gold border-2 border-gold">
                       {plan.trial}
                     </div>
                   </div>
                 )}
 
-                <div className={`relative h-full flex flex-col rounded-3xl p-10 transition-all duration-300 ${
+                <div className={`relative h-full flex flex-col rounded-3xl p-10 transition-all duration-500 ${
                   plan.popular
-                    ? 'bg-gradient-to-br from-gray-900 to-black border-4 border-gold shadow-2xl transform lg:scale-110 z-10'
-                    : 'bg-white border-2 border-gray-200 shadow-lg hover:shadow-xl hover:border-gold/30'
+                    ? 'bento-card border-4 border-gold glow-gold-intense transform lg:scale-110 z-10 neon-border'
+                    : 'bento-card border-2 border-white/10 hover:border-gold/50 hover-lift'
                 }`}>
 
                   {/* Icon */}
-                  <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 ${
-                    plan.popular ? 'bg-gold/20' : 'bg-gray-50 border-2 border-gray-200'
+                  <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 ${
+                    plan.popular ? 'bg-gold/20 glow-gold' : 'glass-card-light'
                   }`}>
-                    <plan.icon className={`w-10 h-10 ${plan.popular ? 'text-gold' : 'text-gray-900'}`} />
+                    <plan.icon className="w-10 h-10 text-gold" />
                   </div>
 
                   {/* Plan Name */}
-                  <h3 className={`text-3xl font-black mb-2 ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className="text-4xl font-black mb-2 text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                     {plan.name}
                   </h3>
-                  <p className={`text-sm font-bold mb-6 ${plan.popular ? 'text-gold' : 'text-gray-600'}`}>
+                  <p className="text-sm font-bold mb-6 gradient-text">
                     {plan.subtitle}
                   </p>
 
                   {/* Price */}
                   <div className="mb-8">
                     <div className="flex items-baseline mb-2">
-                      <span className={`text-6xl font-black ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+                      <span className="text-7xl font-black gradient-text text-glow" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                         €{plan.price}
                       </span>
-                      <span className={`text-xl ml-2 ${plan.popular ? 'text-gray-400' : 'text-gray-600'}`}>
+                      <span className="text-xl ml-2 text-gray-400">
                         {plan.period}
                       </span>
                     </div>
-                    <p className={`text-sm font-semibold ${plan.popular ? 'text-gray-300' : 'text-gray-500'}`}>
+                    <p className="text-sm font-semibold text-gray-300">
                       {plan.priceDetail}
                     </p>
                   </div>
@@ -160,12 +163,10 @@ const Memberships = () => {
                   <ul className="space-y-4 mb-10 flex-grow">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                          plan.popular ? 'bg-gold/20' : 'bg-gray-100'
-                        }`}>
-                          <Check className={`w-4 h-4 ${plan.popular ? 'text-gold' : 'text-gray-900'}`} />
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-gold/20 glow-gold">
+                          <Check className="w-4 h-4 text-gold" />
                         </div>
-                        <span className={`font-medium ${plan.popular ? 'text-gray-200' : 'text-gray-700'}`}>
+                        <span className="font-semibold text-gray-200">
                           {feature}
                         </span>
                       </li>
@@ -175,14 +176,10 @@ const Memberships = () => {
                   {/* CTA */}
                   <a
                     href="/checkout"
-                    className={`w-full py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3 group transition-all duration-300 ${
-                      plan.popular
-                        ? 'bg-gold hover:bg-yellow-400 text-black shadow-xl'
-                        : 'bg-gray-900 hover:bg-black text-white shadow-lg'
-                    }`}
+                    className="btn-gold-premium w-full py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3 group"
                   >
                     <span>EMPEZAR AHORA</span>
-                    <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                   </a>
                 </div>
               </div>
@@ -190,23 +187,23 @@ const Memberships = () => {
           </div>
 
           {/* Guarantee */}
-          <div className="bg-gradient-to-r from-gold/5 via-gold/10 to-gold/5 border-2 border-gold/30 rounded-3xl p-12 text-center">
+          <div className="bento-card p-12 text-center border-2 border-gold/30 glow-gold neon-border reveal">
             <div className="max-w-3xl mx-auto">
-              <div className="bg-gold/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 border-2 border-gold/40">
+              <div className="bg-gold/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-gold">
                 <Award className="w-10 h-10 text-gold" />
               </div>
 
-              <h3 className="text-4xl font-black text-gray-900 mb-4">
-                Garantía de Satisfacción
+              <h3 className="text-5xl font-black text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                <span className="gradient-text">Garantía de Satisfacción</span>
               </h3>
-              <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              <p className="text-xl text-gray-300 leading-relaxed mb-6">
                 Si no estás satisfecho en los primeros 30 días, te devolvemos el{' '}
-                <span className="text-gold font-black">100%</span> de tu dinero. Sin preguntas.
+                <span className="gradient-text font-black text-2xl">100%</span> de tu dinero. Sin preguntas.
               </p>
 
-              <div className="inline-flex items-center bg-white rounded-full px-6 py-3 border-2 border-gold/30">
+              <div className="inline-flex items-center glass-card-light rounded-full px-6 py-3 border-2 border-gold/30 shimmer">
                 <Check className="w-5 h-5 text-gold mr-3" />
-                <span className="text-gray-900 font-bold">30 días de garantía</span>
+                <span className="text-white font-bold">30 días de garantía</span>
               </div>
             </div>
           </div>

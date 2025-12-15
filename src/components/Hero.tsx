@@ -187,6 +187,14 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-gray-400 text-sm font-semibold uppercase tracking-widest">Scroll</span>
+          <div className="w-px h-16 bg-gradient-to-b from-gold to-transparent scroll-indicator"></div>
+        </div>
+      </div>
     </section>
   );
 };
