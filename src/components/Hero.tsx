@@ -1,25 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Star, ArrowRight, CheckCircle, Smartphone, Download, Trophy, Zap } from 'lucide-react';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const moveX = (clientX - window.innerWidth / 2) * 0.01;
-      const moveY = (clientY - window.innerHeight / 2) * 0.01;
-
-      const parallaxElements = document.querySelectorAll('.parallax');
-      parallaxElements.forEach((el, index) => {
-        const speed = (index + 1) * 0.5;
-        (el as HTMLElement).style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
@@ -39,9 +22,9 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50"></div>
       </div>
 
-      {/* Floating Glow Orbs */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-gold/20 rounded-full blur-[120px] float-element"></div>
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-gold-light/20 rounded-full blur-[100px] float-element" style={{ animationDelay: '2s' }}></div>
+      {/* Floating Glow Orbs - Optimized */}
+      <div className="absolute top-20 left-10 w-80 h-80 bg-gold/15 rounded-full blur-[80px] float-element"></div>
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-gold-light/15 rounded-full blur-[70px] float-element" style={{ animationDelay: '4s' }}></div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 py-8">
@@ -58,7 +41,7 @@ const Hero = () => {
               </div>
 
               {/* Main Headline with Gradient Text */}
-              <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-black mb-6 leading-none tracking-wider parallax" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-black mb-6 leading-none tracking-wider" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 <span className="block mb-2 gradient-text">BOOST</span>
                 <span className="text-white block text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
                   by <span className="gradient-text">Sergi Constance</span>
@@ -110,10 +93,10 @@ const Hero = () => {
             </div>
 
             {/* Right Column - App Preview with 3D Effect */}
-            <div className="text-center mt-8 lg:mt-0 parallax">
+            <div className="text-center mt-8 lg:mt-0">
               <div className="relative w-full max-w-md mx-auto">
-                {/* Glow Effect Behind Phone */}
-                <div className="absolute inset-0 glow-gold-intense opacity-50 blur-3xl rounded-[3rem]"></div>
+                {/* Glow Effect Behind Phone - Optimized */}
+                <div className="absolute inset-0 glow-gold opacity-40 rounded-[3rem]"></div>
 
                 {/* Mock Phone Frame with Glass Effect */}
                 <div className="relative mx-auto w-[300px] sm:w-[340px] h-[600px] sm:h-[680px] glass-card-light rounded-[3.5rem] p-4 shadow-2xl card-3d">
