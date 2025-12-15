@@ -1,139 +1,177 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Star, Quote } from 'lucide-react';
+import React from 'react';
+import { Star, TrendingUp, Award } from 'lucide-react';
 
 const Testimonials = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const testimonials = [
+  const transformations = [
     {
       name: "Carlos M.",
-      age: "34 años",
-      profession: "Ejecutivo",
-      duration: "6 meses",
-      result: "-18kg de grasa, +8kg de músculo",
-      quote: "Sergi no solo transformó mi físico, cambió completamente mi mentalidad. Su método es científico, personalizado y, sobre todo, sostenible. Los resultados hablan por sí solos.",
-      beforeImage: "https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+      age: 34,
+      location: "Madrid",
+      duration: "12 semanas",
+      weightLost: "16kg",
+      muscleBuild: "+5kg músculo",
+      quote: "De pensar que no podía cambiar a tener el físico que siempre soñé. Boost lo hizo posible.",
+      beforeImage: "https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      afterImage: "https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      rating: 5
     },
     {
       name: "Ana R.",
-      age: "28 años",
-      profession: "Médica",
-      duration: "4 meses",
-      result: "-12kg, definición muscular",
-      quote: "Como médica, aprecio el enfoque científico de Sergi. Cada recomendación tiene fundamento, cada ajuste tiene propósito. Es coaching de verdad, no improvisación.",
-      beforeImage: "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+      age: 29,
+      location: "Barcelona",
+      duration: "16 semanas",
+      weightLost: "12kg",
+      muscleBuild: "Definición total",
+      quote: "Los programas de la app son increíbles. Finalmente encontré algo que funciona y que puedo seguir.",
+      beforeImage: "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      afterImage: "https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      rating: 5
     },
     {
       name: "Miguel S.",
-      age: "42 años",
-      profession: "Empresario",
-      duration: "8 meses",
-      result: "Transformación completa",
-      quote: "A los 42 pensé que era tarde para cambiar. Sergi me demostró que nunca es tarde cuando tienes el método correcto y la guía adecuada. Mejor forma física de mi vida.",
-      beforeImage: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop",
-      afterImage: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+      age: 41,
+      location: "Valencia",
+      duration: "20 semanas",
+      weightLost: "22kg",
+      muscleBuild: "+7kg músculo",
+      quote: "A mis 41 años conseguí el mejor físico de mi vida. Nunca pensé que sería posible.",
+      beforeImage: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      afterImage: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      rating: 5
+    },
+    {
+      name: "David L.",
+      age: 27,
+      location: "Sevilla",
+      duration: "14 semanas",
+      weightLost: "18kg",
+      muscleBuild: "+6kg músculo",
+      quote: "La app es adictiva. Cada entrenamiento te deja con ganas de más. Resultados increíbles.",
+      beforeImage: "https://images.pexels.com/photos/1547248/pexels-photo-1547248.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      afterImage: "https://images.pexels.com/photos/1092878/pexels-photo-1092878.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      rating: 5
+    },
+    {
+      name: "Laura P.",
+      age: 32,
+      location: "Bilbao",
+      duration: "18 semanas",
+      weightLost: "14kg",
+      muscleBuild: "Tonificación completa",
+      quote: "Sergi sabe lo que hace. Sus programas son desafiantes pero te mantienen motivada cada día.",
+      beforeImage: "https://images.pexels.com/photos/3775540/pexels-photo-3775540.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      afterImage: "https://images.pexels.com/photos/3775534/pexels-photo-3775534.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      rating: 5
+    },
+    {
+      name: "Roberto F.",
+      age: 38,
+      location: "Málaga",
+      duration: "16 semanas",
+      weightLost: "19kg",
+      muscleBuild: "+8kg músculo",
+      quote: "Después de probar mil cosas, Boost es lo único que realmente funcionó. Sin excusas.",
+      beforeImage: "https://images.pexels.com/photos/1310032/pexels-photo-1310032.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      afterImage: "https://images.pexels.com/photos/936094/pexels-photo-936094.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
+      rating: 5
     }
   ];
 
   return (
-    <section ref={sectionRef} id="testimonials" className="py-16 sm:py-20 lg:py-24 bg-gray-900">
+    <section id="transformations" className="py-24 bg-gray-900 relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          
+        <div className="max-w-7xl mx-auto">
+
           {/* Header */}
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-white px-4">
-              <span className="block">Resultados</span>
-              <span className="text-gold">Reales</span>
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
+              <Award className="w-5 h-5 text-gold mr-3" />
+              <span className="text-gold font-bold text-sm tracking-wider">TRANSFORMACIONES REALES</span>
+            </div>
+
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-white">
+              100,000+ Usuarios
+              <span className="block text-gold mt-2">Transformados</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
-              Estas son transformaciones reales de clientes reales. 
-              Sin trucos, sin filtros, solo trabajo duro y método correcto.
+
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Resultados reales de personas reales usando la app Boost. Sin trucajes, sin filtros.
             </p>
           </div>
 
-          {/* Testimonials Grid */}
-          <div className="space-y-12 lg:space-y-16">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                
+          {/* Transformations Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {transformations.map((transformation, index) => (
+              <div
+                key={index}
+                className="bg-gray-800 rounded-3xl overflow-hidden border-2 border-gray-700 hover:border-gold/50 transition-all duration-300 group"
+              >
                 {/* Before/After Images */}
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="grid grid-cols-2 gap-4">
+                <div className="relative h-96">
+                  <div className="absolute inset-0 grid grid-cols-2">
                     {/* Before */}
                     <div className="relative">
                       <img
-                        src={testimonial.beforeImage}
-                        alt={`${testimonial.name} antes`}
-                        className="w-full h-64 object-cover rounded-lg shadow-lg"
+                        src={transformation.beforeImage}
+                        alt={`${transformation.name} antes`}
+                        className="w-full h-full object-cover"
                         loading="lazy"
-                        decoding="async"
                       />
-                      <div className="absolute top-3 left-3 bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">
+                      <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-lg font-black text-xs">
                         ANTES
                       </div>
                     </div>
-                    
+
                     {/* After */}
                     <div className="relative">
                       <img
-                        src={testimonial.afterImage}
-                        alt={`${testimonial.name} después`}
-                        className="w-full h-64 object-cover rounded-lg shadow-lg"
+                        src={transformation.afterImage}
+                        alt={`${transformation.name} después`}
+                        className="w-full h-full object-cover"
                         loading="lazy"
-                        decoding="async"
                       />
-                      <div className="absolute top-3 left-3 bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">
+                      <div className="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-lg font-black text-xs">
                         DESPUÉS
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Results */}
-                  <div className="mt-4 text-center">
-                    <div className="text-xl font-black text-gold mb-1">{testimonial.result}</div>
-                    <div className="text-gray-400 text-sm">en {testimonial.duration}</div>
+
+                  {/* Stats Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-4">
+                    <div className="flex items-center justify-between text-white">
+                      <div className="flex items-center gap-2">
+                        <TrendingUp className="w-5 h-5 text-gold" />
+                        <span className="font-black text-lg">{transformation.weightLost}</span>
+                      </div>
+                      <div className="text-gold font-bold text-sm">{transformation.duration}</div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Testimonial Content */}
-                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                  <div className="relative">
-                    <Quote className="w-8 h-8 text-gold/20 mb-4" />
-                    
-                    <blockquote className="text-lg text-gray-300 mb-6 italic">
-                      "{testimonial.quote}"
-                    </blockquote>
-                    
-                    <div className="border-l-4 border-gold pl-4">
-                      <div className="font-bold text-lg text-white mb-1">{testimonial.name}</div>
-                      <div className="text-gray-400 mb-1">{testimonial.age} • {testimonial.profession}</div>
-                      <div className="flex items-center">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 text-gold fill-current" />
-                        ))}
-                        <span className="ml-2 text-gray-400 text-sm">Programa VIP</span>
-                      </div>
+                {/* Info */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="text-xl font-black text-white mb-1">{transformation.name}</h3>
+                      <p className="text-gray-400 text-sm">{transformation.age} años • {transformation.location}</p>
+                    </div>
+                    <div className="flex gap-1">
+                      {[...Array(transformation.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-gold fill-current" />
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="text-gray-300 italic mb-4 leading-relaxed">
+                    "{transformation.quote}"
+                  </p>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-700">
+                    <div className="text-sm text-gray-400">
+                      {transformation.muscleBuild}
+                    </div>
+                    <div className="text-gold font-bold text-xs bg-gold/10 px-3 py-1 rounded-full">
+                      VERIFICADO
                     </div>
                   </div>
                 </div>
@@ -141,12 +179,23 @@ const Testimonials = () => {
             ))}
           </div>
 
+          {/* CTA */}
+          <div className="text-center">
+            <p className="text-gray-300 text-xl mb-6">
+              Únete a miles de personas transformándose con Boost
+            </p>
+            <a
+              href="#pricing"
+              className="inline-flex items-center bg-gold text-black px-12 py-5 rounded-2xl font-black text-xl hover:bg-yellow-400 transition-all duration-300 shadow-2xl"
+            >
+              EMPEZAR MI TRANSFORMACIÓN
+            </a>
+          </div>
+
           {/* Disclaimer */}
-          <div className="mt-12 pt-6 border-t border-gold/20">
-            <p className="text-center text-gray-400 text-sm max-w-4xl mx-auto px-4">
-              * Los resultados pueden variar según el individuo. Estas transformaciones son el resultado 
-              de seguir el programa completo, mantener la disciplina nutricional y realizar el entrenamiento 
-              según las indicaciones. No se garantizan resultados específicos.
+          <div className="mt-16 pt-8 border-t border-gray-800">
+            <p className="text-center text-gray-500 text-sm max-w-4xl mx-auto leading-relaxed">
+              Los resultados pueden variar según el individuo. Estas transformaciones son el resultado de seguir los programas de Boost, mantener la disciplina nutricional y realizar el entrenamiento según las indicaciones.
             </p>
           </div>
         </div>
