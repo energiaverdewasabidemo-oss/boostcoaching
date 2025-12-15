@@ -24,8 +24,8 @@ const Hero = () => {
       </div>
 
       {/* Floating Glow Orbs - Optimized */}
-      <div className="absolute top-20 left-10 w-80 h-80 bg-gold/15 rounded-full blur-[80px] float-element"></div>
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-gold-light/15 rounded-full blur-[70px] float-element" style={{ animationDelay: '4s' }}></div>
+      <div className="absolute top-20 left-10 w-80 h-80 bg-gold/12 rounded-full blur-[60px] float-element"></div>
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-gold-light/12 rounded-full blur-[50px] float-element" style={{ animationDelay: '4s' }}></div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 py-8">
