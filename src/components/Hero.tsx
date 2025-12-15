@@ -88,7 +88,7 @@ const Hero = () => {
                 </div>
                 <div className="flex items-center glass-card px-4 py-2 rounded-full">
                   <CheckCircle className="w-5 h-5 text-gold mr-3" />
-                  <span className="text-white font-semibold">7 Días Gratis</span>
+                  <span className="text-white font-semibold">5 Días Gratis</span>
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@ const Hero = () => {
           <div className="w-full">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               <div className="glass-card rounded-3xl p-8 text-center card-3d">
-                <div className="text-5xl font-black gradient-text mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>100K+</div>
+                <div className="text-5xl font-black gradient-text mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>5K+</div>
                 <div className="text-gray-300 font-semibold text-base">Usuarios Activos</div>
               </div>
               <div className="glass-card rounded-3xl p-8 text-center card-3d">
