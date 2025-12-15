@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/Foto-14-12-19-15-39-12-scaled.jpg"
+          src="/sg foto 1.jpeg"
           alt="Sergi Constance"
           className="w-full h-full object-cover object-center"
           loading="eager"
@@ -32,7 +32,7 @@ const Hero = () => {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight text-white">
+              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-6 leading-none text-white tracking-wider" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 <span className="block mb-2">BOOST</span>
                 <span className="text-gold block text-4xl sm:text-5xl md:text-6xl lg:text-7xl">by Sergi Constance</span>
               </h1>

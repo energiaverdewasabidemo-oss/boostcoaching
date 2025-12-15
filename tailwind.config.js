@@ -7,12 +7,14 @@ export default {
         'xs': '475px',
       },
       colors: {
-        gold: '#D4AF37',
-        'gold-light': '#E6C757',
-        'gold-dark': '#B8941F',
+        gold: '#FFC107',
+        'gold-light': '#FFD54F',
+        'gold-dark': '#FFA000',
       },
       fontFamily: {
-        sans: ['Inter', 'Montserrat', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+        sans: ['Barlow', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+        heading: ['Bebas Neue', 'Barlow Condensed', 'Impact', 'sans-serif'],
+        condensed: ['Barlow Condensed', 'Arial Narrow', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',

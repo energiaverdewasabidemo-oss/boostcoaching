@@ -18,7 +18,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Barlow', sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -33,9 +33,9 @@ body {
 
 /* Custom CSS Variables */
 :root {
-  --gold: #D4AF37;
-  --gold-light: #E6C757;
-  --gold-dark: #B8941F;
+  --gold: #FFC107;
+  --gold-light: #FFD54F;
+  --gold-dark: #FFA000;
 }
 
 .text-gold {
@@ -71,6 +71,12 @@ body {
 }
 
 /* Typography */
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .font-black {
   font-weight: 900;
 }
