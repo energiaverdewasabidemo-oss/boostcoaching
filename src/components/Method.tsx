@@ -82,8 +82,14 @@ const Method = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="method" className="py-16 sm:py-20 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} id="method" className="py-16 sm:py-20 lg:py-24 bg-gray-50 relative overflow-hidden">
+      <div className="absolute inset-0 gradient-mesh opacity-15"></div>
+
+      <div className="absolute top-32 left-10 w-72 h-72 bg-gold/8 rounded-full blur-[80px] float-element"></div>
+      <div className="absolute bottom-40 right-10 w-96 h-96 bg-gold-dark/8 rounded-full blur-[100px] float-element" style={{ animationDelay: '4s' }}></div>
+      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gold-light/6 rounded-full blur-[70px] float-element" style={{ animationDelay: '2s' }}></div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           
           {/* Header */}
